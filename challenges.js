@@ -6,9 +6,7 @@ import {Star} from "./star.js"
 let testStar=new Star(pencil);
 testStar.draw();
 
-let stars = [
-    testStar
-];
+let stars = [testStar];
 
 
 function gameLoop(){
