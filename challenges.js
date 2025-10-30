@@ -13,12 +13,16 @@ let stars = [
 
 function gameLoop(){
 
+    //erase canvas
+    pencil.clearRect(0,0,canvas.clientWidth,canvas.clientHeight);
     //draw background
 
     //draw stars
 
     //move stars
-
+    for(let i=0;i<stars.length;i++){
+        stars[i].move();
+    }
     //reset star path
 }
 

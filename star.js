@@ -1,11 +1,10 @@
-
 export class Star {
     x = 50;
     y= 50;
     pencil;
 
     constructor(pencil){
-        this.pencil=pencil;
+        this.pencil = pencil;
     }
 
     draw(pencil){
@@ -15,6 +14,10 @@ export class Star {
         this.pencil.fillStyles="red";
         this.pencil.fill();
         this.pencil.closePath();
+    }
+
+    move(){
+        this.x += 5
     }
 
 
