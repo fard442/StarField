@@ -1,48 +1,28 @@
 let canvas = document.getElementById("myCanvas");
 let pencil = canvas.getContext("2d");
-
-
-import {Star} from "./star.js"
-
-let stars = [];
-
-let howManyStars = 100;
-
-for(let i=0; i<howManyStars; i++){
-    let newStar = new Star(pencil, canvas)
-    stars.push(newStar)
-}
-
-
-function drawSpace(){
-    pencil.fillStyle = 'black'
-    pencil.fillRect(0, 0, canvas.width, canvas.height)
-}
-
-
-//erase canvas
-function clearScreen(){
-    pencil.clearRect(0,0,canvas.clientWidth,canvas.clientHeight);
-}
+// import {createBird}
 
 
 function gameLoop(){
-    clearScreen();
-    drawSpace();
-    //draw background
-
-    //draw stars
-
-    //move stars
-    for(let i=0;i<stars.length;i++){
-        stars[i].move();
-        stars[i].draw();
-        stars[i].tryRecycle();
-    }
-    //reset star path
+    pencil.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight)
+    raiseScore()
 }
 
 
-setInterval(gameLoop, 10);
+let score = 0;
 
+//score up every second
+function raiseScore(){
+    score += 1;
+    let scoreElement = document.getElementById("scoreDisplay");
+    scoreElement.innerHTML = score;
+    console.log(score)
+    createBird()
+}
 
+setInterval(gameLoop, 1000);
+
+function detectClicks(){
+    console.log("click")
+}
+addEventListener("click",detectClicks)
