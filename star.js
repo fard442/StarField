@@ -1,6 +1,7 @@
 export class Star {
     x = 50;
     y = 50;
+    size = Math.random() * 5;
     pencil;
     canvas;
 
@@ -14,7 +15,7 @@ export class Star {
     draw(pencil){
         
         this.pencil.beginPath();
-        this.pencil.arc(this.x, this.y, 40, 0, 2*Math.PI);
+        this.pencil.arc(this.x, this.y, this.size, 0, 2*Math.PI);
         this.pencil.fillStyle="red";
         this.pencil.fill();
         this.pencil.closePath();
@@ -25,7 +26,7 @@ export class Star {
     }
 
     resetStar(){
-        
+
     }
 
     move(){

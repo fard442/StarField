@@ -3,11 +3,13 @@ let pencil = canvas.getContext("2d");
 
 
 import {Star} from "./star.js"
-let testStar=new Star(pencil, canvas);
-testStar.draw();
 
-let stars = [testStar];
+let stars = [];
 
+for(let i=0; i<100; i++){
+    let newStar = new Star(pencil, canvas)
+    stars.push(newStar)
+}
 
 function gameLoop(){
 
