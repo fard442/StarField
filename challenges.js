@@ -37,11 +37,12 @@ function gameLoop(){
     for(let i=0;i<stars.length;i++){
         stars[i].move();
         stars[i].draw();
+        stars[i].tryRecycle();
     }
     //reset star path
 }
 
 
-setInterval(gameLoop, 50);
+setInterval(gameLoop, 10);
 
 
