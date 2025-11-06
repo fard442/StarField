@@ -15,7 +15,7 @@ function gameLoop(){
     testerPipe.speed += 0.02
     this.maximumYSpeed = 20;
 
-    let wasHit = Bird.isHitByPipe(testerPipe);
+    let wasHit = testerBird.isHitByPipe(testerPipe);
     
 
     
