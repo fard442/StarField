@@ -10,8 +10,10 @@ export class pipeObstacle {
     pencil;
 
     //pipe parts
-    topPipe;
-    bottomPipe;
+    topPipeTopLeft;
+    topPipeBottomRight;
+    bottomPipeTopLeft;
+    bottomPipeBottomRight;
 
     constructor(canvas, pencil){
         this.pencil = pencil;
@@ -20,7 +22,26 @@ export class pipeObstacle {
     }
 
     draw(){
-        
+
+        this.topPipeTopLeft = {
+            x : this.x,
+            y : this.y - this.height
+        }
+
+        this.topPipeBottomRight = {
+            x : this.x + this.width,
+            y : this.y - this.height + this.height
+        }
+
+        this.bottomPipeTopLeft = {
+            x : this.x,
+            y : this.y + this.gap
+        }
+
+        this.bottomPipeBottomRight = {
+            x : this.x + this.width,
+            y : this.y + this.gap + this.height
+        }
 
         //top pipe
         this.pencil.fillStyle="blue";

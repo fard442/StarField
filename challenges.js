@@ -12,6 +12,14 @@ function gameLoop(){
     testerBird.draw()
     testerBird.gravity()
     
+    testerPipe.speed += 0.02
+    this.maximumYSpeed = 20;
+
+    let wasHit = Bird.isHitByPipe(testerPipe);
+    
+
+    
+    
 }
 
 setInterval(gameLoop, 50);
@@ -30,9 +38,16 @@ function raiseScore(){
 setInterval(raiseScore, 1000);
 
 function detectClicks(){
-    console.log("click")
+    // console.log("click")
+    testerBird.flap()
 }
+
+function detectKey(){
+    // console.log("o")
+}
+
 addEventListener("click",detectClicks);
+document.addEventListener("keypress", detectKey);
 
 let testerPipe = new pipeObstacle(canvas, pencil);
 testerPipe.draw();
