@@ -1,13 +1,18 @@
 let canvas = document.getElementById("myCanvas");
 let pencil = canvas.getContext("2d");
-// import {createBird}
+import { createBird } from "./bird.js"
+import { pipeObstacle } from "./pipeObstacle.js"
 
 
 function gameLoop(){
     pencil.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight)
-    raiseScore()
+    
+    testerPipe.draw()
+    testerPipe.move()
+    
 }
 
+setInterval(gameLoop, 50);
 
 let score = 0;
 
@@ -15,14 +20,17 @@ let score = 0;
 function raiseScore(){
     score += 1;
     let scoreElement = document.getElementById("scoreDisplay");
-    scoreElement.innerHTML = score;
-    console.log(score)
-    createBird()
+    scoreElement.innerHTML = "Score: " +score;
+   
+    
 }
 
-setInterval(gameLoop, 1000);
+setInterval(raiseScore, 1000);
 
 function detectClicks(){
     console.log("click")
 }
 addEventListener("click",detectClicks)
+
+let testerPipe = new pipeObstacle(canvas, pencil)
+testerPipe.draw()
