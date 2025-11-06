@@ -2,7 +2,7 @@ export class pipeObstacle {
 
     x = 600;
     y = 100;
-    height = 500;
+    height;
     width = 100;
     speed = 10;
     gap = 150;
@@ -16,6 +16,7 @@ export class pipeObstacle {
     constructor(canvas, pencil){
         this.pencil = pencil;
         this.canvas = canvas;
+        this.height = canvas.height
     }
 
     draw(){
@@ -41,8 +42,10 @@ export class pipeObstacle {
     move(){
         this.x -= this.speed;
 
+        //check to recycle pipes
         if(this.x < -this.width){
             this.x = this.canvas.width
+            this.y = Math.random() * this.canvas.height
         }
     }
 }
