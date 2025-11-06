@@ -1,9 +1,10 @@
 export class pipeObstacle {
 
-    x = 300;
+    x = 600;
     y = 100;
     height = 500;
-    speed = 0;
+    width = 100;
+    speed = 10;
     gap = 150;
     canvas;
     pencil;
@@ -25,7 +26,7 @@ export class pipeObstacle {
         this.pencil.fillRect(
             this.x, 
             this.y - this.height,
-            100, 
+            this.width, 
             this.height);
 
         //bottom pipe
@@ -33,11 +34,15 @@ export class pipeObstacle {
         this.pencil.fillRect(
             this.x, 
             this.y + this.gap, 
-            100, 
+            this.width, 
             this.height);
     }
     
     move(){
         this.x -= this.speed;
+
+        if(this.x < -this.width){
+            this.x = this.canvas.width
+        }
     }
 }
