@@ -23,12 +23,14 @@ function gameLoop(){
     
     
     if (wasHit == true){
-        console.log("hit")
+        
+        
         testerBird.maximumYSpeed = 5000
         testerPipe.speed = 0
         
         
         //Reset
+        
         score = 0
         console.log("boowomp")
         testerBird.y = 50
@@ -48,12 +50,18 @@ setInterval(gameLoop, 50);
 
 
 let score = 0;
+let highScore = 0;
 
 //score up every second
 function raiseScore(){
     score += 1;
+    if (highScore < score){
+        highScore = score
+    }
     let scoreElement = document.getElementById("scoreDisplay");
+    let highscoreElement = document.getElementById("highScoreDisplay");
     scoreElement.innerHTML = "Score: " +score;
+    highscoreElement.innerHTML = "Highscore: " +highScore;
    
     
 }

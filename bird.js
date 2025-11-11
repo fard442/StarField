@@ -1,10 +1,12 @@
 export class Bird {
+    // let birdImage = document.getElementById
     x  = 50;
     y = 50;
     width = 50;
     height = 50;
     canvas;
     pencil;
+    sprite : 
 
     ySpeed = 1;
     maximumYSpeed = 20;

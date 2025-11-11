@@ -1,7 +1,7 @@
 export class pipeObstacle {
 
     x = 600;
-    y = 50;
+    y = 20;
     height;
     width = 100;
     speed = 10;
