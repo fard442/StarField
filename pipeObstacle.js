@@ -1,11 +1,11 @@
 export class pipeObstacle {
 
     x = 600;
-    y = 100;
+    y = 50;
     height;
     width = 100;
     speed = 10;
-    gap = 150;
+    gap = 180;
     canvas;
     pencil;
 

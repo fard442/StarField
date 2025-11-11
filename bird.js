@@ -40,25 +40,33 @@ export class Bird {
         }
 
         //stops bird 
-        if(this.y + 50 > this.canvas.height - 30){
+        if(this.y + 50 > this.canvas.height - 25){
             this.maximumYSpeed = 0;
+        } else {
+            this.maximumYSpeed = 20;
         }
     }
 
     isHitByPipe(pipeObstacle){
-        let isFarEnoughRight = this.x > pipeObstacle.topPipeTopLeft.x;
-        let isLowEnough = this.y > pipeObstacle.topPipeTopLeft.y;
-        let isFarEnoughLeft = this.x < pipeObstacle.topPipeBottomRight.x;
-        let isHighEnough = this.y < pipeObstacle.topPipeBottomRight.y;
-        if(this.x > pipeObstacle.topPipeTopLeft.x)
+        //Top pipe check
+        let isFarEnoughTopRight = this.x > pipeObstacle.topPipeTopLeft.x;
+        let isLowEnoughTop = this.y > pipeObstacle.topPipeTopLeft.y;
+        let isFarEnoughTopLeft = this.x < pipeObstacle.topPipeBottomRight.x;
+        let isHighEnoughTop = this.y < pipeObstacle.topPipeBottomRight.y;
+        
+        
+        
+        
+        //Bottom pipe check
+        let isFarEnoughBottomRight = this.x > pipeObstacle.bottomPipeTopLeft.x;
+        let isLowEnoughBottom = this.y > pipeObstacle.bottomPipeTopLeft.y;
+        let isFarEnoughBottomLeft = this.x < pipeObstacle.bottomPipeBottomRight.x;
+        let isHighEnoughBottom = this.y < pipeObstacle.bottomPipeBottomRight.y;
+        
+        
+        if(isFarEnoughBottomRight && isLowEnoughBottom && isFarEnoughBottomLeft && isHighEnoughBottom || isFarEnoughTopRight && isLowEnoughTop && isFarEnoughTopLeft && isHighEnoughTop)
             return true;
-        if(this.y > pipeObstacle.topPipeTopLeft.y)
-            return true;
-        if(this.x > pipeObstacle.topPipeBottomRight.x)
-            return true;
-        if(this.y > pipeObstacle.topPipeBottomRight.y)
-            return true;
-        return false
+        return false;
         
     }
 }
