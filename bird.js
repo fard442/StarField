@@ -6,7 +6,7 @@ export class Bird {
     height = 50;
     canvas;
     pencil;
-    sprite : 
+    // sprite : 
 
     ySpeed = 1;
     maximumYSpeed = 20;
